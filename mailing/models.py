@@ -1,10 +1,15 @@
 import uuid
+from enum import Enum
 
+from django.apps import apps
 from django.db import models
+from django.dispatch import receiver
+from datetime import datetime, date
 
+from mailing.apps import MailingConfig
+#from mailing.mail_sender import send_mails
 
 NULLBOL = {'blank': True, 'null': True}
-
 
 
 class Client(models.Model):
@@ -28,8 +33,6 @@ class Message(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='id_сообщения')
     subject_letter = models.CharField(max_length=50, verbose_name='тема письма')
     body_letter = models.TextField(**NULLBOL, verbose_name='тело письма')
-    #client = models.ForeignKey(Client, on_delete=models.CASCADE, verbose_name='клиент')
-    #message_sattings = models.ForeignKey(MessageSattings, on_delete=models.CASCADE, verbose_name='настройки рассылки')
 
     def __str__(self):
         return f'{self.subject_letter}'
@@ -39,12 +42,22 @@ class Message(models.Model):
         verbose_name_plural = 'сообщения'
 
 
-class MessageSattings(models.Model):
+class MessageSettings(models.Model):
+
+    class Period(models.TextChoices):
+        dayly = "Каждый день"
+        weekly = "Каждую неделю"
+        monthly = "Каждый месяц"
+
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, verbose_name='id_рассылки')
+    name = models.CharField(max_length=50, verbose_name="наименование рассылки")
     time_from = models.DateTimeField(verbose_name='Дата и время запуска рассылки')
     time_by = models.DateTimeField(verbose_name='Дата и время окончания рассылки')
-    status = models.CharField(verbose_name="статус рассылки")
-    frequency = models.DateTimeField(verbose_name="периодичность")
-    message = models.ForeignKey(Message, on_delete=models.CASCADE)
+    period = models.CharField(max_length=50, choices=Period.choices, verbose_name="Период рассылки")
+    message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Письмо для рассылки")
+    customers = models.ManyToManyField(Client, verbose_name="Список клиентов")
+    status = models.CharField(max_length=50, default='создана', verbose_name="Статус рассылки")
+    last_dispatch_date = models.DateField(**NULLBOL, verbose_name='дата последней отправки')
 
     def __str__(self):
         return f'{self.status}'
@@ -54,16 +67,16 @@ class MessageSattings(models.Model):
         verbose_name_plural = 'настройки рассылки'
 
 
-#
-# class Logi(models.Model):
-#     attempt_time_date = models.DateTimeField(auto_now=True, verbose_name='время последней попытки')
-#     status = models.CharField(verbose_name="статус попытки")
-#     server_response = models.CharField(verbose_name="ответ сервера")
-#
-#     def __str__(self):
-#         return f'{self.status}'
-#
-#     class Meta:
-#         verbose_name = 'лог рассылки'
-#         verbose_name_plural = 'логи рассылки'
-#
+
+class Logi(models.Model):
+    message = models.ForeignKey(MessageSettings, on_delete=models.CASCADE, verbose_name='ID рассылки')
+    attempt_time_date = models.DateTimeField(auto_now=True, verbose_name='время последней попытки')
+    status = models.CharField(max_length=150, verbose_name="статус попытки")        # Статус - успешно доставлено, в очереди на отправку, ошибка отправки. Как вариант.
+    server_response = models.CharField(max_length=150, verbose_name="ответ сервера", **NULLBOL)
+
+    def __str__(self):
+        return f'{self.status}'
+
+    class Meta:
+        verbose_name = 'лог рассылки'
+        verbose_name_plural = 'логи рассылки'

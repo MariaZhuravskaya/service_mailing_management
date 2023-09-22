@@ -35,8 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_apscheduler",
 
-    'mailing'
+    'mailing',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,8 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'maria',
         'PORT': '5432',
+        'CONN_MAX_AGE': None,       # ??????
+
     }
 }
 
@@ -125,3 +128,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'zhuravsckajam@yandex.ru'
+EMAIL_HOST_PASSWORD = 'xqmyjleiucrlvobd'
+EMAIL_USE_SSL = True

@@ -1,0 +1,50 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+
+<p></p>
+
+
+<div class="card mb-4 box-shadow">
+    <p></p>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4 mb-4 rounded-3 shadow-sm">
+                <a href="{% url 'mailing:messagesettings_form' %}" type="button" class="w-100 btn btn-lg btn-outline-primary">
+                    Создать новую рассылку
+                </a>
+            </div>
+        </div>
+        {% for object in object_list %}
+        <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">{{ object.name }}</h4>
+                </div>
+                <div class="card-body">
+                    {{ object.message }}
+                    {{ object.customers }}
+                    {{ object.status }}
+                    {{ object.period }}
+                    {{ object.time_from }}
+                    {{ object.time_by }}
+
+                    <div class="btn-group">
+                        <a href="{% url 'mailing:messagesettings_detail' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</a>
+
+                        <a href="{% url 'mailing:messagesettings_update' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+
+                        <a href="{% url 'mailing:messagesettings_delete' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Удалить
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+{% endblock %}

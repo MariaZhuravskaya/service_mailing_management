@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'mailing/base.html' %}
+{% block content %}
 
-</body>
-</html>
+<p></p>
+
+
+<div class="card mb-4 box-shadow">
+    <p></p>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-4 mb-4 rounded-3 shadow-sm">
+                <a href="{% url 'mailing:message_form' %}" type="button" class="w-100 btn btn-lg btn-outline-primary">
+                    Создать новое сообщение
+                </a>
+            </div>
+        </div>
+        {% for object in object_list %}
+        <div class="col-4">
+            <div class="card mb-4 rounded-3 shadow-sm">
+                <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">{{ object.subject_letter }}</h4>
+                </div>
+                <div class="card-body">
+                    {% if object.body_letter %}
+                    {{ object.body_letter | truncatechars:50 }}
+                    {% else %}
+                    <h2 class="card-title pricing-card-title">
+                        <small class="text-muted">
+                            Текст сообщения отсутствует
+                        </small></h2>
+                    {% endif %}
+                    <div class="btn-group">
+                        <a href="{% url 'mailing:message_detail' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Подробнее</a>
+
+                        <a href="{% url 'mailing:message_update' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+
+                        <a href="{% url 'mailing:message_delete' object.id %}"
+                           type="button" class="w-100 btn btn-lg btn-outline-primary">Удалить
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+
+{% endblock %}

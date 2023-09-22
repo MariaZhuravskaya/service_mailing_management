@@ -1,0 +1,33 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+
+<p></p>
+
+
+<div class="card mb-4 box-shadow">
+    <p></p>
+    <div class="card-body">
+        <table class="table table-striped">
+            <tr>
+                <th>ID рассылки</th>
+                <th>Наименование рассылки</th>
+                <th>Время последней попытки</th>
+                <th>Статус попытки</th>
+                <th>Ответ сервера</th>
+                <th>Клиенты</th>
+            </tr>
+            {% for object in object_list %}
+            <tr class='success'>
+                <td>{{ object.message.id }}</td>
+                <td>{{ object.message.name }}</td>
+                <td>{{ object.attempt_time_date }}</td>
+                <td>{{ object.status }}</td>
+                <td>{{ object.server_response }}</td>
+                <td>{{ object.message.customers.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

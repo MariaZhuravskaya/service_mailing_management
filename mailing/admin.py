@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from mailing.models import Client, Message
+from mailing.models import Client, Message, MessageSettings, Logi
 
 
 @admin.register(Client)
@@ -11,6 +11,16 @@ class ClientAdmin(admin.ModelAdmin):
 
 @admin.register(Message)
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'subject_letter', 'body_letter', 'client',)
-    list_filter = ('client',)
+    list_display = ('id', 'subject_letter', 'body_letter', )
+
+
+@admin.register(MessageSettings)
+class MessageSettingsAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'time_from', 'time_by', 'period', 'message', 'status', )
+    list_filter = ('name', 'status',)
+
+@admin.register(Logi)
+class LogiAdmin(admin.ModelAdmin):
+    fields = ('message', 'status', 'server_response', )
+    list_filter = ('status',)
 

@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'mailing/base.html' %}
 
-</body>
-</html>
+{% block content %}
+
+<div class="card">
+    <div class="card-header">{{ object.subject_letter }}</div>
+    <div class="card-body">
+        {{ object.body_letter }}
+        <div class="card-footer">
+            <div class="btn-group">
+                <a href="{% url 'mailing:message_update' object.id %}"  type="button" class="w-100 btn btn-lg btn-outline-primary">Редактировать</a>
+                <a href="{% url 'mailing:message_list' %}"  type="button" class="w-100 btn btn-lg btn-outline-primary">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
