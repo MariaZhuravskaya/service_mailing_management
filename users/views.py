@@ -1,14 +1,15 @@
-from django.contrib.auth.views import LoginView
+import random
+
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, UpdateView
 
 from config import settings
-from users.forms import RegisterCreationForm, ProfileChangeForm
+from users.forms import RegisterCreationForm, UserProfileForm
 from users.models import User
 
 
@@ -17,7 +18,7 @@ class RegisterView(CreateView):
     model = User
     form_class = RegisterCreationForm
     template_name = 'users/register.html'
-    success_url = reverse_lazy('users:login')
+    success_url = reverse_lazy('users:check_email')
 
     def form_valid(self, form):
         """Подтверждение e-mail"""
@@ -25,14 +26,13 @@ class RegisterView(CreateView):
             user = form.save(commit=False)
             user.is_active = False
             # генерация токена
-            user.id = User.objects.make_random_password()
-            user.set_password(user.id)
+            user.id = random.randint(0, 100)
             user.save()
 
             send_mail(
                 'Подтвердите свой электронный адрес',
                 f"Ваша учетная запись подтверждена!"
-                f"Перейтите по ссылке - http://127.0.0.1:8000/users/verify/{user.id}",
+                f"Перейдите по ссылке - http://127.0.0.1:8000/users/verify/{user.id}",
                 settings.EMAIL_HOST_USER,
                 [user.email],
                 fail_silently=False,
@@ -40,11 +40,28 @@ class RegisterView(CreateView):
         return super().form_valid(form)
 
 
+def verify(request, id_user):
+    """Верификация пользователя"""
+    user = User.objects.get(id=id_user)
+
+    if user is not None and user.id == id_user:
+        user.is_active = True
+        user.save()
+        return HttpResponseRedirect(reverse_lazy('users:login'))
+
+
+def check_email(request):
+    return render(request, 'users/check_email.html')
+
+
 class ProfileView(UpdateView):
     """Изменение профиля"""
     model = User
-    form_class = ProfileChangeForm
-    success_url = reverse_lazy('users:login')
+    form_class = UserProfileForm
+    success_url = reverse_lazy('mailing:message_list')
+
+    def get_object(self, queryset=None):
+        return self.request.user
 
 
 class UserPassword(View):
@@ -82,20 +99,5 @@ class UserPassword(View):
         except MultipleObjectsReturned:
             print("Найдено более одного объекта")
 
-
-class UserVerifyView(View):
-    model = User
-    success_url = reverse_lazy('users:login')
-    template_name = 'users/check_email.html'
-
-    def verify(self, request, id_user):
-        user = User.objects.get(id=id_user)
-
-        if user is not None and user.id == id_user:
-            user.is_active = True
-            user.save()
-            return render(request, self.template_name)
-        else:
-            return HttpResponseRedirect(reverse_lazy('users:login'))
 
 
