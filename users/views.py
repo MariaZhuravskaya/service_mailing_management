@@ -20,7 +20,7 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
-
+        """Подтверждение e-mail"""
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
@@ -81,3 +81,21 @@ class UserPassword(View):
             print("Объект не сушествует")
         except MultipleObjectsReturned:
             print("Найдено более одного объекта")
+
+
+class UserVerifyView(View):
+    model = User
+    success_url = reverse_lazy('users:login')
+    template_name = 'users/check_email.html'
+
+    def verify(self, request, id_user):
+        user = User.objects.get(id=id_user)
+
+        if user is not None and user.id == id_user:
+            user.is_active = True
+            user.save()
+            return render(request, self.template_name)
+        else:
+            return HttpResponseRedirect(reverse_lazy('users:login'))
+
+
