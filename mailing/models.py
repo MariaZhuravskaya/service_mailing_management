@@ -6,6 +6,7 @@ from django.db import models
 from django.dispatch import receiver
 from datetime import datetime, date
 
+from config import settings
 from mailing.apps import MailingConfig
 #from mailing.mail_sender import send_mails
 
@@ -20,6 +21,7 @@ class Client(models.Model):
     comments = models.TextField(**NULLBOL, verbose_name='комментарии')
     year_birth = models.DateField(verbose_name='год рождения')
     email = models.EmailField(verbose_name='почта', unique=True)
+    client_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLBOL, verbose_name='клиент пользователя')
 
     def __str__(self):
         return f'{self.last_name} {self.first_name} {self.patronymic}'
