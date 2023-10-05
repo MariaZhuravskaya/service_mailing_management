@@ -152,7 +152,7 @@ EMAIL_USE_SSL = True
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/'
+LOGIN_URL = '/users/'
 
 
 CACHE_ENABLED = os.getenv('CACHE_ENABLED') == True
