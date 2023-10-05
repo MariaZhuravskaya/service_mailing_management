@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from mailing.apps import MailingConfig
 from mailing.views import ClientListView, ClientCreateView, ClientDetailView, ClientDeleteView, ClientUpdateView, \
@@ -8,10 +9,8 @@ from mailing.views import ClientListView, ClientCreateView, ClientDetailView, Cl
 
 app_name = MailingConfig.name
 
-
-
 urlpatterns = [
-    path('', index),
+    path('', cache_page(60)(index)),
     path('message_list', MessageListView.as_view(), name='message_list'),
     path('message/create', MessageCreateView.as_view(), name='message_form'),
     path('message/detail/<uuid:uuid>', MessageDetailView.as_view(), name='message_detail'),
@@ -24,7 +23,6 @@ urlpatterns = [
     path('messagesettings/<uuid:uuid>', MessageSettingsUpdateView.as_view(), name='messagesettings_update'),
     path('messagesettings/delete/<uuid:pk>', MessageSettingsDeleteView.as_view(), name='messagesettings_delete'),
 
-
     path('client_list', ClientListView.as_view(), name='client_list'),
     path('client/create', ClientCreateView.as_view(), name='client_form'),
     path('client/detail/<uuid:uuid>', ClientDetailView.as_view(), name='client_detail'),
@@ -34,4 +32,3 @@ urlpatterns = [
     path('logi_list', LogiListView.as_view(), name='logi_list'),
     path('logi/create', LogiCreateView.as_view(), name='logi_form'),
 ]
-

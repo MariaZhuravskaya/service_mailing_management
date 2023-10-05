@@ -48,6 +48,12 @@ class Message(models.Model):
 
 class MessageSettings(models.Model):
 
+    STATUS_CHOICES = [
+        ("создана", "создана"),
+        ("запущена", "запущена"),
+        ("завершена", "завершена"),
+    ]
+
     class Period(models.TextChoices):
         dayly = "Каждый день"
         weekly = "Каждую неделю"
@@ -60,7 +66,7 @@ class MessageSettings(models.Model):
     period = models.CharField(max_length=50, choices=Period.choices, verbose_name="Период рассылки")
     message = models.ForeignKey(Message, on_delete=models.CASCADE, verbose_name="Письмо для рассылки")
     customers = models.ManyToManyField(Client, verbose_name="Список клиентов")
-    status = models.CharField(max_length=50, default='создана', verbose_name="Статус рассылки")
+    status = models.CharField(max_length=50, default='создана', choices=STATUS_CHOICES, verbose_name="Статус рассылки")
     last_dispatch_date = models.DateField(**NULLABLE, verbose_name='дата последней отправки')
     message_settings_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
                                      verbose_name='рассылка пользователя')

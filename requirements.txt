@@ -1,5 +1,6 @@
 APScheduler==3.10.4
 asgiref==3.7.2
+backports.zoneinfo==0.2.1
 Django==4.2.5
 django-apscheduler==0.6.2
 greenlet==2.0.2
@@ -13,3 +14,4 @@ sqlparse==0.4.4
 typing_extensions==4.7.1
 tzdata==2023.3
 tzlocal==5.0.1
+crispy_bootstrap4==2022.1
