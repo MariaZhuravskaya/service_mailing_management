@@ -1,9 +1,9 @@
 **Сервис управления E-mail рассылками.**
 
 **_При разработки использовала_**
-Python, Django framework, Postgres, Redis, Git.
+`Python, Django framework, Postgres, Redis, Git.`
 
-Установка и запуск
+_**Установка и запуск**_
 git clone https://github.com/MariaZhuravskaya/coursework_django
 Необходимо создать файл .env на основе .env.sample с вашим токеном, аккаунтом для отправки почты, данные для подключения БД
 Далее, пожалуйста, обратитесь к <a>`requirements.txt`</a> для получения обновленного списка необходимых пакетов.
