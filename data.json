@@ -1,0 +1,1296 @@
+[
+  {
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+      "action_time": "2023-10-05T13:44:22.565Z",
+      "user": 77,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "менеджер",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+      "action_time": "2023-10-05T13:44:41.587Z",
+      "user": 77,
+      "content_type": 3,
+      "object_id": "1",
+      "object_repr": "менеджер",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+      "action_time": "2023-10-05T13:45:36.525Z",
+      "user": 77,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "контент-менеджер",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+      "action_time": "2023-10-05T13:46:27.899Z",
+      "user": 77,
+      "content_type": 3,
+      "object_id": "2",
+      "object_repr": "контент-менеджер",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+      "action_time": "2023-10-05T13:48:49.564Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "0",
+      "object_repr": "Content_menedger@menedger.com",
+      "action_flag": 1,
+      "change_message": "[{\"added\": {}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+      "action_time": "2023-10-05T13:49:53.517Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "0",
+      "object_repr": "Content_menedger@menedger.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+      "action_time": "2023-10-05T13:51:07.766Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "28",
+      "object_repr": "test@test.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Groups\", \"First name\", \"Last name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+      "action_time": "2023-10-05T13:54:03.617Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "28",
+      "object_repr": "test@test.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+      "action_time": "2023-10-05T13:55:44.977Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "65",
+      "object_repr": "User@gmail.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"\\u041f\\u043e\\u0447\\u0442\\u0430\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+      "action_time": "2023-10-05T13:56:20.315Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "71",
+      "object_repr": "User2@user2.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"\\u041f\\u043e\\u0447\\u0442\\u0430\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+      "action_time": "2023-10-05T13:56:51.832Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "28",
+      "object_repr": "menedger@menedger.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"\\u041f\\u043e\\u0447\\u0442\\u0430\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+      "action_time": "2023-10-05T13:57:53.750Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "28",
+      "object_repr": "menedger@menedger.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+      "action_time": "2023-10-05T14:03:34.301Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "0",
+      "object_repr": "content@menedger.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"First name\", \"Last name\", \"\\u041f\\u043e\\u0447\\u0442\\u0430\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+      "action_time": "2023-10-05T14:05:11.504Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "0",
+      "object_repr": "content@menedger.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+      "action_time": "2023-10-05T14:05:51.402Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "0",
+      "object_repr": "content@menedger.com",
+      "action_flag": 3,
+      "change_message": ""
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+      "action_time": "2023-10-05T14:06:59.767Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "100",
+      "object_repr": "content@menedger.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Last login\", \"Groups\", \"First name\", \"Last name\"]}}]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+      "action_time": "2023-10-05T14:08:17.100Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "100",
+      "object_repr": "content@menedger.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+      "action_time": "2023-10-05T17:55:19.379Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "28",
+      "object_repr": "menedger@menedger.com",
+      "action_flag": 2,
+      "change_message": "[]"
+    }
+  },
+  {
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+      "action_time": "2023-10-05T18:03:52.200Z",
+      "user": 77,
+      "content_type": 12,
+      "object_id": "71",
+      "object_repr": "User2@user2.com",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"fields\": [\"Is active\"]}}]"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+      "name": "Can add log entry",
+      "content_type": 1,
+      "codename": "add_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+      "name": "Can change log entry",
+      "content_type": 1,
+      "codename": "change_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+      "name": "Can delete log entry",
+      "content_type": 1,
+      "codename": "delete_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+      "name": "Can view log entry",
+      "content_type": 1,
+      "codename": "view_logentry"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+      "name": "Can add permission",
+      "content_type": 2,
+      "codename": "add_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+      "name": "Can change permission",
+      "content_type": 2,
+      "codename": "change_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+      "name": "Can delete permission",
+      "content_type": 2,
+      "codename": "delete_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+      "name": "Can view permission",
+      "content_type": 2,
+      "codename": "view_permission"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+      "name": "Can add group",
+      "content_type": 3,
+      "codename": "add_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+      "name": "Can change group",
+      "content_type": 3,
+      "codename": "change_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+      "name": "Can delete group",
+      "content_type": 3,
+      "codename": "delete_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+      "name": "Can view group",
+      "content_type": 3,
+      "codename": "view_group"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+      "name": "Can add content type",
+      "content_type": 4,
+      "codename": "add_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+      "name": "Can change content type",
+      "content_type": 4,
+      "codename": "change_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+      "name": "Can delete content type",
+      "content_type": 4,
+      "codename": "delete_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+      "name": "Can view content type",
+      "content_type": 4,
+      "codename": "view_contenttype"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+      "name": "Can add session",
+      "content_type": 5,
+      "codename": "add_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+      "name": "Can change session",
+      "content_type": 5,
+      "codename": "change_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+      "name": "Can delete session",
+      "content_type": 5,
+      "codename": "delete_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+      "name": "Can view session",
+      "content_type": 5,
+      "codename": "view_session"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+      "name": "Can add django job",
+      "content_type": 6,
+      "codename": "add_djangojob"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+      "name": "Can change django job",
+      "content_type": 6,
+      "codename": "change_djangojob"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+      "name": "Can delete django job",
+      "content_type": 6,
+      "codename": "delete_djangojob"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+      "name": "Can view django job",
+      "content_type": 6,
+      "codename": "view_djangojob"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+      "name": "Can add django job execution",
+      "content_type": 7,
+      "codename": "add_djangojobexecution"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+      "name": "Can change django job execution",
+      "content_type": 7,
+      "codename": "change_djangojobexecution"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+      "name": "Can delete django job execution",
+      "content_type": 7,
+      "codename": "delete_djangojobexecution"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+      "name": "Can view django job execution",
+      "content_type": 7,
+      "codename": "view_djangojobexecution"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+      "name": "Can add клиент",
+      "content_type": 8,
+      "codename": "add_client"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+      "name": "Can change клиент",
+      "content_type": 8,
+      "codename": "change_client"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+      "name": "Can delete клиент",
+      "content_type": 8,
+      "codename": "delete_client"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+      "name": "Can view клиент",
+      "content_type": 8,
+      "codename": "view_client"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+      "name": "Can add сообщение",
+      "content_type": 9,
+      "codename": "add_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+      "name": "Can change сообщение",
+      "content_type": 9,
+      "codename": "change_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+      "name": "Can delete сообщение",
+      "content_type": 9,
+      "codename": "delete_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+      "name": "Can view сообщение",
+      "content_type": 9,
+      "codename": "view_message"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+      "name": "Can add настройка рассылки",
+      "content_type": 10,
+      "codename": "add_messagesettings"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+      "name": "Can change настройка рассылки",
+      "content_type": 10,
+      "codename": "change_messagesettings"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+      "name": "Can delete настройка рассылки",
+      "content_type": 10,
+      "codename": "delete_messagesettings"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+      "name": "Can view настройка рассылки",
+      "content_type": 10,
+      "codename": "view_messagesettings"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+      "name": "Can add лог рассылки",
+      "content_type": 11,
+      "codename": "add_logi"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+      "name": "Can change лог рассылки",
+      "content_type": 11,
+      "codename": "change_logi"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+      "name": "Can delete лог рассылки",
+      "content_type": 11,
+      "codename": "delete_logi"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+      "name": "Can view лог рассылки",
+      "content_type": 11,
+      "codename": "view_logi"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+      "name": "Can add user",
+      "content_type": 12,
+      "codename": "add_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+      "name": "Can change user",
+      "content_type": 12,
+      "codename": "change_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+      "name": "Can delete user",
+      "content_type": 12,
+      "codename": "delete_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+      "name": "Can view user",
+      "content_type": 12,
+      "codename": "view_user"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+      "name": "Can add блог",
+      "content_type": 13,
+      "codename": "add_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+      "name": "Can change блог",
+      "content_type": 13,
+      "codename": "change_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+      "name": "Can delete блог",
+      "content_type": 13,
+      "codename": "delete_blog"
+    }
+  },
+  {
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+      "name": "Can view блог",
+      "content_type": 13,
+      "codename": "view_blog"
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "менеджер",
+      "permissions": [
+        36,
+        40,
+        48
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "контент-менеджер",
+      "permissions": [
+        49,
+        50,
+        51,
+        52
+      ]
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+      "app_label": "admin",
+      "model": "logentry"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+      "app_label": "auth",
+      "model": "permission"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+      "app_label": "auth",
+      "model": "group"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+      "app_label": "contenttypes",
+      "model": "contenttype"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+      "app_label": "sessions",
+      "model": "session"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+      "app_label": "django_apscheduler",
+      "model": "djangojob"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+      "app_label": "django_apscheduler",
+      "model": "djangojobexecution"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+      "app_label": "mailing",
+      "model": "client"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+      "app_label": "mailing",
+      "model": "message"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+      "app_label": "mailing",
+      "model": "messagesettings"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+      "app_label": "mailing",
+      "model": "logi"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+      "app_label": "users",
+      "model": "user"
+    }
+  },
+  {
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+      "app_label": "blog",
+      "model": "blog"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "n8eex0t4qm1crbpvqd53f0n4n5l7gl9w",
+    "fields": {
+      "session_data": ".eJxVjMsOwiAURP-FtSHlDS7d-w3kXuBK1dCktCvjvytJF7qcOWfmxSLsW417L2ucMzsza9jpt0RIj9IGyXdot4WnpW3rjHwo_KCdX5dcnpfD_Tuo0Ot3LYJViFMQzqdgjRROJqcUFZuJCFBLQ0q4oMHhNGIRRN5bQi-VxszeH_m2OBc:1qoU5g:40-DktfCh2UXRKdsQg2F6_sEYxid_ENkwlwL-HbSbaE",
+      "expire_date": "2023-10-19T19:32:56.534Z"
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojob",
+    "pk": "delete_old_job_executions",
+    "fields": {
+      "next_run_time": "2023-10-06T06:00:00Z",
+      "job_state": "gAWVNgQAAAAAAAB9lCiMB3ZlcnNpb26USwGMAmlklIwZZGVsZXRlX29sZF9qb2JfZXhlY3V0aW9uc5SMBGZ1bmOUjDFtYWlsaW5nLm1hbmFnZW1lbnQuY29tbWFuZHMucnVuYXBzY2hlZHVsZXI6bXlfam9ilIwHdHJpZ2dlcpSMGWFwc2NoZWR1bGVyLnRyaWdnZXJzLmNyb26UjAtDcm9uVHJpZ2dlcpSTlCmBlH2UKGgBSwKMCHRpbWV6b25llIwIYnVpbHRpbnOUjAdnZXRhdHRylJOUjBJiYWNrcG9ydHMuem9uZWluZm+UjAhab25lSW5mb5STlIwJX3VucGlja2xllIaUUpSMDUV1cm9wZS9Nb3Njb3eUSwGGlFKUjApzdGFydF9kYXRllE6MCGVuZF9kYXRllE6MBmZpZWxkc5RdlCiMIGFwc2NoZWR1bGVyLnRyaWdnZXJzLmNyb24uZmllbGRzlIwJQmFzZUZpZWxklJOUKYGUfZQojARuYW1llIwEeWVhcpSMCmlzX2RlZmF1bHSUiIwLZXhwcmVzc2lvbnOUXZSMJWFwc2NoZWR1bGVyLnRyaWdnZXJzLmNyb24uZXhwcmVzc2lvbnOUjA1BbGxFeHByZXNzaW9ulJOUKYGUfZSMBHN0ZXCUTnNiYXViaB2MCk1vbnRoRmllbGSUk5QpgZR9lChoIowFbW9udGiUaCSIaCVdlGgpKYGUfZRoLE5zYmF1YmgdjA9EYXlPZk1vbnRoRmllbGSUk5QpgZR9lChoIowDZGF5lGgkiGglXZRoKSmBlH2UaCxOc2JhdWJoHYwJV2Vla0ZpZWxklJOUKYGUfZQoaCKMBHdlZWuUaCSIaCVdlGgpKYGUfZRoLE5zYmF1YmgdjA5EYXlPZldlZWtGaWVsZJSTlCmBlH2UKGgijAtkYXlfb2Zfd2Vla5RoJIhoJV2UaCkpgZR9lGgsTnNiYXViaB8pgZR9lChoIowEaG91cpRoJIloJV2UaCeMD1JhbmdlRXhwcmVzc2lvbpSTlCmBlH2UKGgsTowFZmlyc3SUSwmMBGxhc3SUSwl1YmF1YmgfKYGUfZQoaCKMBm1pbnV0ZZRoJIloJV2UaFIpgZR9lChoLE5oVUsAaFZLAHViYXViaB8pgZR9lChoIowGc2Vjb25klGgkiGglXZRoUimBlH2UKGgsTmhVSwBoVksAdWJhdWJljAZqaXR0ZXKUTnVijAhleGVjdXRvcpSMB2RlZmF1bHSUjARhcmdzlCmMBmt3YXJnc5R9lGgijAZteV9qb2KUjBJtaXNmaXJlX2dyYWNlX3RpbWWUSwGMCGNvYWxlc2NllIiMDW1heF9pbnN0YW5jZXOUSwGMDW5leHRfcnVuX3RpbWWUjAhkYXRldGltZZSMCGRhdGV0aW1llJOUQwoH5woGCQAAAAAAlGgYhpRSlHUu"
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojob",
+    "pk": "my_job",
+    "fields": {
+      "next_run_time": "2023-10-05T11:12:10Z",
+      "job_state": "gAWV4wMAAAAAAAB9lCiMB3ZlcnNpb26USwGMAmlklIwGbXlfam9ilIwEZnVuY5SMMW1haWxpbmcubWFuYWdlbWVudC5jb21tYW5kcy5ydW5hcHNjaGVkdWxlcjpteV9qb2KUjAd0cmlnZ2VylIwZYXBzY2hlZHVsZXIudHJpZ2dlcnMuY3JvbpSMC0Nyb25UcmlnZ2VylJOUKYGUfZQoaAFLAowIdGltZXpvbmWUjAhidWlsdGluc5SMB2dldGF0dHKUk5SMEmJhY2twb3J0cy56b25laW5mb5SMCFpvbmVJbmZvlJOUjAlfdW5waWNrbGWUhpRSlIwNRXVyb3BlL01vc2Nvd5RLAYaUUpSMCnN0YXJ0X2RhdGWUTowIZW5kX2RhdGWUTowGZmllbGRzlF2UKIwgYXBzY2hlZHVsZXIudHJpZ2dlcnMuY3Jvbi5maWVsZHOUjAlCYXNlRmllbGSUk5QpgZR9lCiMBG5hbWWUjAR5ZWFylIwKaXNfZGVmYXVsdJSIjAtleHByZXNzaW9uc5RdlIwlYXBzY2hlZHVsZXIudHJpZ2dlcnMuY3Jvbi5leHByZXNzaW9uc5SMDUFsbEV4cHJlc3Npb26Uk5QpgZR9lIwEc3RlcJROc2JhdWJoHYwKTW9udGhGaWVsZJSTlCmBlH2UKGgijAVtb250aJRoJIhoJV2UaCkpgZR9lGgsTnNiYXViaB2MD0RheU9mTW9udGhGaWVsZJSTlCmBlH2UKGgijANkYXmUaCSIaCVdlGgpKYGUfZRoLE5zYmF1YmgdjAlXZWVrRmllbGSUk5QpgZR9lChoIowEd2Vla5RoJIhoJV2UaCkpgZR9lGgsTnNiYXViaB2MDkRheU9mV2Vla0ZpZWxklJOUKYGUfZQoaCKMC2RheV9vZl93ZWVrlGgkiGglXZRoKSmBlH2UaCxOc2JhdWJoHymBlH2UKGgijARob3VylGgkiGglXZRoKSmBlH2UaCxOc2JhdWJoHymBlH2UKGgijAZtaW51dGWUaCSIaCVdlGgpKYGUfZRoLE5zYmF1YmgfKYGUfZQoaCKMBnNlY29uZJRoJIloJV2UaCkpgZR9lGgsSwpzYmF1YmWMBmppdHRlcpROdWKMCGV4ZWN1dG9ylIwHZGVmYXVsdJSMBGFyZ3OUKYwGa3dhcmdzlH2UaCJoA4wSbWlzZmlyZV9ncmFjZV90aW1llEsBjAhjb2FsZXNjZZSIjA1tYXhfaW5zdGFuY2VzlEsBjA1uZXh0X3J1bl90aW1llIwIZGF0ZXRpbWWUjAhkYXRldGltZZSTlEMKB+cKBQ4MCgAAAJRoGIaUUpR1Lg=="
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 1,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:08:50Z",
+      "duration": "0.59",
+      "finished": "1696504130.59",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 2,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:00Z",
+      "duration": "0.01",
+      "finished": "1696504140.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 3,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:10Z",
+      "duration": "0.01",
+      "finished": "1696504150.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 4,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:20Z",
+      "duration": "0.02",
+      "finished": "1696504160.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 5,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:30Z",
+      "duration": "0.02",
+      "finished": "1696504170.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 6,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:40Z",
+      "duration": "0.01",
+      "finished": "1696504180.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 7,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:09:50Z",
+      "duration": "0.02",
+      "finished": "1696504190.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 8,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:00Z",
+      "duration": "0.01",
+      "finished": "1696504200.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 9,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:10Z",
+      "duration": "0.01",
+      "finished": "1696504210.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 10,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:20Z",
+      "duration": "0.01",
+      "finished": "1696504220.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 11,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:30Z",
+      "duration": "0.02",
+      "finished": "1696504230.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 12,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:40Z",
+      "duration": "0.02",
+      "finished": "1696504240.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 13,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:10:50Z",
+      "duration": "0.01",
+      "finished": "1696504250.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 14,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:00Z",
+      "duration": "0.02",
+      "finished": "1696504260.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 15,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:10Z",
+      "duration": "0.01",
+      "finished": "1696504270.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 16,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:20Z",
+      "duration": "0.02",
+      "finished": "1696504280.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 17,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:30Z",
+      "duration": "0.01",
+      "finished": "1696504290.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 18,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:40Z",
+      "duration": "0.01",
+      "finished": "1696504300.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 19,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:11:50Z",
+      "duration": "0.01",
+      "finished": "1696504310.01",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "django_apscheduler.djangojobexecution",
+    "pk": 20,
+    "fields": {
+      "job": "my_job",
+      "status": "Executed",
+      "run_time": "2023-10-05T11:12:00Z",
+      "duration": "0.02",
+      "finished": "1696504320.02",
+      "exception": null,
+      "traceback": null
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": "53f2b192-7479-4b69-bb8b-1bdeb54f953f",
+    "fields": {
+      "last_name": "Журавская",
+      "first_name": "Мария",
+      "patronymic": "Петровна",
+      "comments": "",
+      "year_birth": "1988-02-01",
+      "email": "maria.mandrykina@gmail.com",
+      "client_user": 77
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": "71199b60-30d1-4d15-8973-a7ca8b545534",
+    "fields": {
+      "last_name": "Журавский",
+      "first_name": "Виталий",
+      "patronymic": "Витальевич",
+      "comments": "",
+      "year_birth": "1988-02-01",
+      "email": "vit@vit.com",
+      "client_user": 65
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": "dbd3faf4-b5e9-4417-9a9e-7c2f71a663a8",
+    "fields": {
+      "subject_letter": "С новым годом!",
+      "body_letter": "С новым годом!",
+      "message_user": 77
+    }
+  },
+  {
+    "model": "mailing.messagesettings",
+    "pk": "302db158-6bb3-4ac4-bd55-d6099b4cbb77",
+    "fields": {
+      "name": "Тест",
+      "time_from": "2023-10-04T08:00:00Z",
+      "time_by": "2023-10-06T00:00:00Z",
+      "period": "Каждый день",
+      "message": "dbd3faf4-b5e9-4417-9a9e-7c2f71a663a8",
+      "status": "завершена",
+      "last_dispatch_date": "2023-10-05",
+      "message_settings_user": 77,
+      "customers": [
+        "53f2b192-7479-4b69-bb8b-1bdeb54f953f"
+      ]
+    }
+  },
+  {
+    "model": "mailing.logi",
+    "pk": 1,
+    "fields": {
+      "message": "302db158-6bb3-4ac4-bd55-d6099b4cbb77",
+      "attempt_time_date": "2023-10-05T11:08:50.588Z",
+      "status": "Успешная отправка рассылки",
+      "server_response": "OK"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 28,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$cBESOpTRtnyZsES3wze8lC$yNWLrRuDfWOJ1e2Yh3YU6WX3OEPzXY9YbQ2FCoiD6Xc=",
+      "last_login": "2023-10-05T18:04:10.600Z",
+      "is_superuser": false,
+      "first_name": "Menedger",
+      "last_name": "Menedger",
+      "is_staff": true,
+      "date_joined": "2023-10-05T10:55:44Z",
+      "email": "menedger@menedger.com",
+      "phone": null,
+      "avatar": "",
+      "cantry": null,
+      "is_active": true,
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 65,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$BicGnDzj1DX6CqqGMihaPZ$+yTLssUgHVxY9yFvzLfAznjUuMAM87W/VhP862uvW4E=",
+      "last_login": "2023-10-05T19:32:56.533Z",
+      "is_superuser": false,
+      "first_name": "User",
+      "last_name": "User",
+      "is_staff": false,
+      "date_joined": "2023-10-05T13:18:19Z",
+      "email": "User@gmail.com",
+      "phone": null,
+      "avatar": "",
+      "cantry": null,
+      "is_active": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 71,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$fzum5lzXhA1NF6jgEyq7Tr$YzGyMEpaNHP+ohrIeeRXh6wDkyHUsDSKCHR0yrY4d9o=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "User2",
+      "last_name": "User2",
+      "is_staff": false,
+      "date_joined": "2023-10-05T10:58:38Z",
+      "email": "User2@user2.com",
+      "phone": null,
+      "avatar": "",
+      "cantry": null,
+      "is_active": false,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 77,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$diCrpC6OuLp0vS06nCj46e$pGqW738og1sr5y/8zsdReeQysp5gbE8Y/TWTiV7FwgQ=",
+      "last_login": "2023-10-05T17:59:05.647Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "date_joined": "2023-10-05T10:57:31.881Z",
+      "email": "admin@admin.com",
+      "phone": null,
+      "avatar": "",
+      "cantry": null,
+      "is_active": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 100,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$nGj43Z4kkQ8L5DktTN7dZq$8oAMr6FaKcs178AD1sCqP3myUGfiejl5QF3+xO7YZag=",
+      "last_login": "2023-10-05T14:07:10Z",
+      "is_superuser": false,
+      "first_name": "content_menedger",
+      "last_name": "content_menedger",
+      "is_staff": true,
+      "date_joined": "2023-10-05T14:05:57Z",
+      "email": "content@menedger.com",
+      "phone": null,
+      "avatar": "",
+      "cantry": null,
+      "is_active": true,
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  }
+]
