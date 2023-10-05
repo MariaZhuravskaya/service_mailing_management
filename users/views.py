@@ -58,7 +58,7 @@ class ProfileView(UpdateView):
     """Изменение профиля"""
     model = User
     form_class = UserProfileForm
-    success_url = reverse_lazy('mailing:message_list')
+    success_url = reverse_lazy('mailing:index')
 
     def get_object(self, queryset=None):
         return self.request.user

@@ -1,0 +1,47 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+
+
+<p></p>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="card mb-4 box-shadow">
+                <p></p>
+                <div class="card-body">
+                    <img src="/static/images/i.webp" class="img-fluid" alt="Look">
+                    <h2 class="card-title pricing-card-title">E-mail маркетинг НУЖЕН Вашему делу!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <div class="card">
+        <div class="card-body">
+
+            <h5>Количество рассылок: {{ count_total }}</h5>
+            <h5>Количество активных рассылок: {{ count }}</h5>
+            <h5>Количество уникальных клиентов для рассылок: {{ client }}</h5>
+            <h5>Статьи блога:</h5>
+
+            {% for b in blog %}
+
+                <p></p>
+                <div class="card">
+                <div class="card-body">
+                    {{ b }}
+                </div>
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+
+
+</div>
+{% endblock %}
+

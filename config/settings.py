@@ -25,7 +25,7 @@ load_dotenv(dotenv_path=env_path)
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-l=e+4mubnd0fj@z@^ztk3oq-_g8^ubf!gn*sih*y@)%*q+7i3u'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'mailing',
     'users',
+    'blog',
 
     'crispy_forms',
     'crispy_bootstrap4',
@@ -86,12 +87,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'album_mailing',
-        'HOST': '127.0.0.1',
-        'USER': 'postgres',
-        'PASSWORD': 'maria',
+        'NAME': os.getenv('NAME'),
+        'HOST': os.getenv('HOST'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
         'PORT': '5432',
-        'CONN_MAX_AGE': None,       # ??????
+        'CONN_MAX_AGE': None,
 
     }
 }
@@ -142,13 +143,23 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
-EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'zhuravsckajam@yandex.ru'
-EMAIL_HOST_PASSWORD = 'xqmyjleiucrlvobd'
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 
 AUTH_USER_MODEL = 'users.User'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/users'
+LOGIN_URL = '/'
+
+
+CACHE_ENABLED = os.getenv('CACHE_ENABLED') == True
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": os.getenv('CACHES_LOCATION'),
+    }
+}

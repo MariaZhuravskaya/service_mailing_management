@@ -4,14 +4,15 @@ from mailing.apps import MailingConfig
 from mailing.views import ClientListView, ClientCreateView, ClientDetailView, ClientDeleteView, ClientUpdateView, \
     MessageCreateView, MessageDetailView, MessageListView, MessageUpdateView, MessageSettingsCreateView, \
     MessageSettingsListView, MessageSettingsDetailView, MessageSettingsDeleteView, MessageDeleteView, \
-    MessageSettingsUpdateView, LogiListView, LogiCreateView
+    MessageSettingsUpdateView, LogiListView, LogiCreateView, index
 
 app_name = MailingConfig.name
 
 
 
 urlpatterns = [
-    path('', MessageListView.as_view(), name='message_list'),
+    path('', index),
+    path('message_list', MessageListView.as_view(), name='message_list'),
     path('message/create', MessageCreateView.as_view(), name='message_form'),
     path('message/detail/<uuid:uuid>', MessageDetailView.as_view(), name='message_detail'),
     path('message/<uuid:uuid>', MessageUpdateView.as_view(), name='message_update'),

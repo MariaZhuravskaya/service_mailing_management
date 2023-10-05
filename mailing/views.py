@@ -1,10 +1,25 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from random import random
+
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
+from blog.models import Blog
 from mailing.models import Client, Message, MessageSettings, Logi
+
+
+def index(request):
+    if request.method == 'GET':
+        context = {
+            'count_total': len(MessageSettings.objects.all()),
+            'count': len(MessageSettings.objects.filter(status="запущена")) + len(MessageSettings.objects.filter(status="создана")),
+            'client': len(Client.objects.all()),
+            'blog': Blog.objects.order_by('?')[:3]
+        }
+
+        return render(request, 'mailing/index.html', context)
 
 
 #####################   КЛИЕНТЫ РАССЫЛКИ
@@ -36,6 +51,7 @@ class ClientUpdateView(LoginRequiredMixin, UpdateView):
 class ClientListView(LoginRequiredMixin, ListView):
     model = Client
 
+
 class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Client
 
@@ -58,26 +74,32 @@ class ClientDeleteView(LoginRequiredMixin, DeleteView):
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
     model = Message
-    fields = ('subject_letter', 'body_letter', )
+    fields = ('subject_letter', 'body_letter',)
     success_url = reverse_lazy('mailing:message_list')  # ???? адрес для перенаправления
 
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.message_user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
-class MessageUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+
+class MessageUpdateView(LoginRequiredMixin, UpdateView):
     model = Message
     fields = ('subject_letter', 'body_letter',)
-    permission_required = 'mailing.change_message'
     success_url = reverse_lazy('mailing:message_list')
 
     def get_object(self, queryset=None):
-        self.object = Client.objects.get(id=self.kwargs.get("uuid"))
-        if self.object.client_user != self.request.user:
+        self.object = Message.objects.get(id=self.kwargs.get("uuid"))
+        if self.object.message_user != self.request.user:
             raise Http404
         return self.object
     #
     # def get_object(self, queryset=None):
     #     return Message.objects.get(id=self.kwargs.get("uuid"))
 
-class MessageListView(ListView):
+
+class MessageListView(LoginRequiredMixin, ListView):
     model = Message
 
 
@@ -94,7 +116,7 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(id=self.kwargs.get("pk"), client_user=self.request.user)
+        queryset = queryset.filter(id=self.kwargs.get("pk"), message_user=self.request.user)
         return queryset
 
 
@@ -102,12 +124,23 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
 
 class MessageSettingsCreateView(LoginRequiredMixin, CreateView):
     model = MessageSettings
-    fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers', )
+    fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers',)
     success_url = reverse_lazy('mailing:messagesettings_list')  # ???? адрес для перенаправления
+
+    def form_valid(self, form):
+        self.object = form.save()
+        self.object.message_settings_user = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 
 class MessageSettingsListView(LoginRequiredMixin, ListView):
     model = MessageSettings
+
+    def get_queryset(self, *args, **kwargs):
+        queryset = super().get_queryset(*args, **kwargs)
+        queryset = queryset.all()
+        return queryset
 
 
 class MessageSettingsDetailView(LoginRequiredMixin, DetailView):
@@ -117,20 +150,16 @@ class MessageSettingsDetailView(LoginRequiredMixin, DetailView):
         return MessageSettings.objects.get(id=self.kwargs.get("uuid"))
 
 
-class MessageSettingsUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+class MessageSettingsUpdateView(LoginRequiredMixin, UpdateView):
     model = MessageSettings
-    permission_required = 'mailing.change_messagesettings'
-    fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers', )
+    fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers',)
     success_url = reverse_lazy('mailing:messagesettings_list')
 
     def get_object(self, queryset=None):
-        self.object = Client.objects.get(id=self.kwargs.get("uuid"))
-        if self.object.client_user != self.request.user:
+        self.object = MessageSettings.objects.get(id=self.kwargs.get("uuid"))
+        if self.object.message_settings_user != self.request.user:
             raise Http404
         return self.object
-
-    # def get_object(self, queryset=None):
-    #     return MessageSettings.objects.get(id=self.kwargs.get("uuid"))
 
 
 class MessageSettingsDeleteView(LoginRequiredMixin, DeleteView):
@@ -139,7 +168,7 @@ class MessageSettingsDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(id=self.kwargs.get("pk"), client_user=self.request.user)
+        queryset = queryset.filter(id=self.kwargs.get("pk"), message_settings_user=self.request.user)
         return queryset
 
 
@@ -149,5 +178,5 @@ class LogiListView(LoginRequiredMixin, ListView):
 
 class LogiCreateView(LoginRequiredMixin, CreateView):
     model = Logi
-    fields = ('message', 'attempt_time_date', 'status', 'server_response', )
+    fields = ('message', 'attempt_time_date', 'status', 'server_response',)
     success_url = reverse_lazy('mailing:logi_list')
