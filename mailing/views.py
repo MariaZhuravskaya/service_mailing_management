@@ -149,7 +149,6 @@ class MessageSettingsDetailView(LoginRequiredMixin, DetailView):
     def get_object(self, queryset=None):
         return MessageSettings.objects.get(id=self.kwargs.get("uuid"))
 
-
 class MessageSettingsUpdateView(LoginRequiredMixin, UpdateView):
     model = MessageSettings
     fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers',)
