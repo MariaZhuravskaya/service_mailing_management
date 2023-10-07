@@ -7,11 +7,12 @@ _**Установка и запуск**_
 * git clone https://github.com/MariaZhuravskaya/coursework_django
 * Настраиваем виртуальное окружение и интерпретаор:
   1. File -> Settings -> Progect:coursework_django -> Python Interpretator ->
-        -> Add Local Interpretator -> New -> указываем путь к venv
+        -> Add Local Interpretator -> New -> указываем путь к venv (или используем терминал для создания виртуального окружения 1.python -m venv .venv
+        2.source .venv/bin/activate 3.pip install -r requirements.txt)
   2. Далее, пожалуйста, обратитесь к <a>`requirements.txt`</a> для получения обновленного списка необходимых пакетов.
   Открываем файл requirements.txt -> контекстное меню, выбираем Install All Packages
   3. Запускаем redis -> redis-cli
-  4. Запускаем выполнение программы черезтерминал (python manage.py runserver) или настроить Edit Configurations.
+  4. Запускаем выполнение программы через терминал (python manage.py runserver) или настроить Edit Configurations.
           
 * Необходимо создать файл .env на основе .env.sample с вашим токеном, аккаунтом для отправки почты, данные для подключения БД
 
