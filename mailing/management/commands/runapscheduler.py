@@ -1,7 +1,5 @@
 import logging
 
-from django.conf import settings
-
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.core.management.base import BaseCommand
@@ -16,59 +14,44 @@ import smtplib
 
 smtplib.SMTP.debuglevel = 9
 
-# Кастомная команда
-# Вызывать команду необходимо через всё тот же файл обслуживания фреймворка
-# manage.py
-# Сама команда должна обязательно наследоваться от базового класса и реализовывать обязательный метод handle
-
 
 logger = logging.getLogger(__name__)
 
 
 def my_job():
-    # Your job processing logic here...
+    """
+    Метод выполняющий автоматическую рассылку сообщений по расписанию
+    """
     from mailing.models import MessageSettings, Logi
     settings_all = MessageSettings.objects.all()
     for meiling in settings_all:
-
         if can_send(meiling):
             print('Skip send email for ' + str(meiling.id))
             continue
-
         else:
-
             now = datetime.now()
             from_t = datetime.combine(meiling.time_from.date(), meiling.time_from.time())
             to_t = datetime.combine(meiling.time_by.date(), meiling.time_by.time())
-
             if from_t < now < to_t:
-
                 meiling.status = 'запущена'
                 meiling.last_dispatch_date = date.today()
                 meiling.save()
-
                 for client in meiling.customers.all():
                     try:
                         print('Sending email for ' + client.email)
                         result = send_mail(meiling.message.subject_letter, meiling.message.body_letter,
                                            settings.EMAIL_HOST_USER,
                                            [client.email])
-
                         today = date.today()
-
                         if today >= meiling.time_by.date():
                             meiling.status = 'завершена'
                             meiling.save()
-
                         log = Logi.objects.create(
                             status='Успешная отправка рассылки',
                             attempt_time_date=datetime.now(),
                             server_response="OK",
                             message=meiling)
                         log.save()
-
-
-
                     except smtplib.SMTPException:
                         log = Logi.objects.create(status='Рассылка не отправлена. Повторите попытку позже',
                                                   attempt_time_date=datetime.now(),
@@ -76,10 +59,8 @@ def my_job():
                                                   message=meiling
                                                   )
                         log.save()
-
             else:
                 continue
-
 
 
 def can_send(m):
@@ -95,12 +76,9 @@ def can_send(m):
     elif m.period == 'Каждый месяц':
         monthly = datetime.now().month
         year = datetime.now().year
-
         monthly_m = m.last_dispatch_date.month
         year_m = m.last_dispatch_date.year
-
         return monthly_m == monthly and year_m == year
-
     else:
         raise Exception('Нет такого периода рассылки')
 

@@ -9,11 +9,10 @@ psycopg2==2.9.9
 python-dotenv==1.0.0
 pytz==2023.3.post1
 six==1.16.0
-SQLAlchemy==2.0.21
 sqlparse==0.4.4
 typing_extensions==4.8.0
 tzdata==2023.3
 tzlocal==5.1
 crispy_bootstrap4==2022.1
 django-crispy-forms>=1.14.0
-
+redis==5.0.1

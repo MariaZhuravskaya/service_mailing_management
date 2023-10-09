@@ -1,5 +1,4 @@
 from django import forms
-
 from mailing.models import MessageSettings, Client
 
 
@@ -13,4 +12,3 @@ class MessageSettingsForm(forms.ModelForm):
     class Meta:
         model = MessageSettings
         fields = ('name', 'time_from', 'time_by', 'period', 'message', 'customers',)
-

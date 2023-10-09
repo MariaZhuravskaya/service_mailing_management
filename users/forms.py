@@ -1,10 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-
 from users.models import User
 from django import forms
 
 
 class RegisterCreationForm(UserCreationForm):
+    """
+    Форма регистрации
+    """
 
     class Meta:
         model = User
@@ -12,6 +14,9 @@ class RegisterCreationForm(UserCreationForm):
 
 
 class UserProfileForm(UserChangeForm):
+    """
+    Форма профиля
+    """
 
     class Meta:
         model = User

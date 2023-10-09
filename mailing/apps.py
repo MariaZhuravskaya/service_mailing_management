@@ -6,7 +6,3 @@ class MailingConfig(AppConfig):
     name = 'mailing'
     verbose_name = 'Рассылка'
     scheduler = None
-
-    # def ready(self):
-    #     from . import jobs
-    #     self.scheduler = jobs.configure()

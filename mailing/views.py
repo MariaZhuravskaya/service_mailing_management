@@ -1,11 +1,8 @@
-from random import random
-
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
 from blog.models import Blog
 from mailing.forms import MessageSettingsForm
 from mailing.models import Client, Message, MessageSettings, Logi
@@ -24,9 +21,10 @@ def index(request):
         return render(request, 'mailing/index.html', context)
 
 
-#####################   КЛИЕНТЫ РАССЫЛКИ
-
 class ClientCreateView(LoginRequiredMixin, CreateView):
+    """
+    Контроллер для модели  Clien. Создание клиента
+    """
     model = Client
     fields = ('last_name', 'first_name', 'patronymic', 'comments', 'email', 'year_birth',)
     success_url = reverse_lazy('mailing:client_list')
@@ -39,6 +37,9 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
 
 
 class ClientUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    Контроллер для модели  Clien. Изиенение данных клиента.
+    """
     model = Client
     fields = ('last_name', 'first_name', 'patronymic', 'comments', 'email', 'year_birth',)
     success_url = reverse_lazy('mailing:client_list')
@@ -51,10 +52,16 @@ class ClientUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class ClientListView(LoginRequiredMixin, ListView):
+    """
+    Контроллер для модели  Clien. Просмотр списка клиентов.
+    """
     model = Client
 
 
 class ClientDetailView(LoginRequiredMixin, DetailView):
+    """
+    Контроллер для модели  Clien. Просмотр данных клиента.
+    """
     model = Client
 
     def get_object(self, queryset=None):
@@ -62,6 +69,9 @@ class ClientDetailView(LoginRequiredMixin, DetailView):
 
 
 class ClientDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    Контроллер для модели  Clien. Удаоение клиента.
+    """
     model = Client
     success_url = reverse_lazy('mailing:client_list')
 
@@ -71,10 +81,10 @@ class ClientDeleteView(LoginRequiredMixin, DeleteView):
         return queryset
 
 
-# контроллеры для модели  Message
-#####################   СООБЩЕНИЕ РАССЫЛКИ
-
 class MessageCreateView(LoginRequiredMixin, CreateView):
+    """
+    Контроллер для модели  Message. Создание сообщения
+    """
     model = Message
     fields = ('subject_letter', 'body_letter',)
     success_url = reverse_lazy('mailing:message_list')
@@ -87,6 +97,9 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
 
 
 class MessageUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    Контроллер для модели  Message. Изиенение сообщения.
+    """
     model = Message
     fields = ('subject_letter', 'body_letter',)
     success_url = reverse_lazy('mailing:message_list')
@@ -99,10 +112,16 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class MessageListView(LoginRequiredMixin, ListView):
+    """
+    Контроллер для модели  Message. Просмотр списка сообщений.
+    """
     model = Message
 
 
 class MessageDetailView(LoginRequiredMixin, DetailView):
+    """
+    Контроллер для модели  Message. Просмотр сообщения.
+    """
     model = Message
 
     def get_object(self, queryset=None):
@@ -110,6 +129,9 @@ class MessageDetailView(LoginRequiredMixin, DetailView):
 
 
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    Контроллер для модели  Message. Удаление сообщения.
+    """
     model = Message
     success_url = reverse_lazy('mailing:message_list')
 
@@ -119,9 +141,10 @@ class MessageDeleteView(LoginRequiredMixin, DeleteView):
         return queryset
 
 
-#####################   РАССЫЛКА
-
 class MessageSettingsCreateView(LoginRequiredMixin, CreateView):
+    """
+    Контроллер для модели  MessageSettings. Создание рассылки.
+    """
     model = MessageSettings
     form_class = MessageSettingsForm
     success_url = reverse_lazy('mailing:messagesettings_list')
@@ -139,6 +162,9 @@ class MessageSettingsCreateView(LoginRequiredMixin, CreateView):
 
 
 class MessageSettingsListView(LoginRequiredMixin, ListView):
+    """
+    Контроллер для модели  MessageSettings. Просмотр списка рассылки.
+    """
     model = MessageSettings
 
     def get_queryset(self, *args, **kwargs):
@@ -148,6 +174,9 @@ class MessageSettingsListView(LoginRequiredMixin, ListView):
 
 
 class MessageSettingsDetailView(LoginRequiredMixin, DetailView):
+    """
+    Контроллер для модели  MessageSettings. Просмотр рассылки.
+    """
     model = MessageSettings
 
     def get_object(self, queryset=None):
@@ -155,6 +184,9 @@ class MessageSettingsDetailView(LoginRequiredMixin, DetailView):
 
 
 class MessageSettingsUpdateView(LoginRequiredMixin, UpdateView):
+    """
+    Контроллер для модели  MessageSettings. Изменение рассылки.
+    """
     model = MessageSettings
     fields = ('name', 'time_from', 'time_by', 'period', 'message', 'status', 'customers',)
     success_url = reverse_lazy('mailing:messagesettings_list')
@@ -167,6 +199,9 @@ class MessageSettingsUpdateView(LoginRequiredMixin, UpdateView):
 
 
 class MessageSettingsDeleteView(LoginRequiredMixin, DeleteView):
+    """
+    Контроллер для модели  MessageSettings. Удаление рассылки.
+    """
     model = MessageSettings
     success_url = reverse_lazy('mailing:messagesettings_list')
 
@@ -177,10 +212,16 @@ class MessageSettingsDeleteView(LoginRequiredMixin, DeleteView):
 
 
 class LogiListView(LoginRequiredMixin, ListView):
+    """
+    Контроллер для модели  Logi. Просмотр списка логов.
+    """
     model = Logi
 
 
 class LogiCreateView(LoginRequiredMixin, CreateView):
+    """
+    Контроллер для модели  Logi.
+    """
     model = Logi
     fields = ('message', 'attempt_time_date', 'status', 'server_response',)
     success_url = reverse_lazy('mailing:logi_list')

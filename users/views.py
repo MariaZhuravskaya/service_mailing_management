@@ -1,34 +1,35 @@
 import random
-
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, UpdateView
-
 from config import settings
 from users.forms import RegisterCreationForm, UserProfileForm
 from users.models import User
 
 
 class RegisterView(CreateView):
-    """Регистрация пользователя"""
+    """
+    Контроллер для модели User. Регистрация пользователя.
+    """
     model = User
     form_class = RegisterCreationForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('users:check_email')
 
     def form_valid(self, form):
-        """Подтверждение e-mail"""
+        """
+        Метод реализующий подтверждение e-mail.
+        user.id: генерация пароля
+        """
         if form.is_valid():
             user = form.save(commit=False)
             user.is_active = False
-            # генерация токена
             user.id = random.randint(0, 100)
             user.save()
-
             send_mail(
                 'Подтвердите свой электронный адрес',
                 f"Ваша учетная запись подтверждена!"
@@ -41,7 +42,9 @@ class RegisterView(CreateView):
 
 
 def verify(request, id_user):
-    """Верификация пользователя"""
+    """
+    Метод реализующий верификацию пользователя
+    """
     user = User.objects.get(id=id_user)
 
     if user is not None and user.id == id_user:
@@ -55,7 +58,9 @@ def check_email(request):
 
 
 class ProfileView(UpdateView):
-    """Изменение профиля"""
+    """
+    Контроллер для модели User.Изменение профиля
+    """
     model = User
     form_class = UserProfileForm
     success_url = reverse_lazy('mailing:index')
@@ -65,7 +70,9 @@ class ProfileView(UpdateView):
 
 
 class UserPassword(View):
-    """Восстановление пароля"""
+    """
+    Контроллер для модели User. Восстановление пароля пользователя.
+    """
     model = User
     success_url = reverse_lazy('users:login')
     template_name = 'users/password_reset_form.html'
@@ -74,17 +81,12 @@ class UserPassword(View):
         return render(request, self.template_name)
 
     def post(self, request):
-
         try:
-
             email = request.POST.get('email')
             user = User.objects.get(email=email)
-
             password = User.objects.make_random_password()
             user.set_password(password)
             user.save()
-
-            # Функционал для отправки письма
             send_mail(
                 'Ваш пароль',
                 f"Ваш новый пароль! - {password}",
@@ -93,11 +95,7 @@ class UserPassword(View):
                 fail_silently=False,
             )
             return HttpResponseRedirect(reverse_lazy('users:login'))
-
         except ObjectDoesNotExist:
             print("Объект не сушествует")
         except MultipleObjectsReturned:
             print("Найдено более одного объекта")
-
-
-

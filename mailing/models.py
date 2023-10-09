@@ -1,14 +1,7 @@
 import uuid
-from enum import Enum
-
-from django.apps import apps
 from django.db import models
-from django.dispatch import receiver
-from datetime import datetime, date
-
 from config import settings
-from mailing.apps import MailingConfig
-#from mailing.mail_sender import send_mails
+
 
 NULLABLE = {'blank': True, 'null': True}
 
@@ -21,7 +14,8 @@ class Client(models.Model):
     comments = models.TextField(**NULLABLE, verbose_name='комментарии')
     year_birth = models.DateField(verbose_name='год рождения')
     email = models.EmailField(verbose_name='почта', unique=True)
-    client_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE, verbose_name='клиент пользователя')
+    client_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
+                                    verbose_name='клиент пользователя')
 
     def __str__(self):
         return f'{self.last_name} {self.first_name} {self.patronymic}'
@@ -36,7 +30,7 @@ class Message(models.Model):
     subject_letter = models.CharField(max_length=50, verbose_name='тема письма')
     body_letter = models.TextField(**NULLABLE, verbose_name='тело письма')
     message_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
-                                    verbose_name='сообщение пользователя')
+                                     verbose_name='сообщение пользователя')
 
     def __str__(self):
         return f'{self.subject_letter}'
@@ -47,7 +41,6 @@ class Message(models.Model):
 
 
 class MessageSettings(models.Model):
-
     STATUS_CHOICES = [
         ("создана", "создана"),
         ("запущена", "запущена"),
@@ -69,7 +62,7 @@ class MessageSettings(models.Model):
     status = models.CharField(max_length=50, default='создана', choices=STATUS_CHOICES, verbose_name="Статус рассылки")
     last_dispatch_date = models.DateField(**NULLABLE, verbose_name='дата последней отправки')
     message_settings_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, **NULLABLE,
-                                     verbose_name='рассылка пользователя')
+                                              verbose_name='рассылка пользователя')
 
     def __str__(self):
         return f'{self.status}'
@@ -82,7 +75,7 @@ class MessageSettings(models.Model):
 class Logi(models.Model):
     message = models.ForeignKey(MessageSettings, on_delete=models.CASCADE, verbose_name='ID рассылки')
     attempt_time_date = models.DateTimeField(auto_now=True, verbose_name='время последней попытки')
-    status = models.CharField(max_length=150, verbose_name="статус попытки")        # Статус - успешно доставлено, в очереди на отправку, ошибка отправки. Как вариант.
+    status = models.CharField(max_length=150, verbose_name="статус попытки")
     server_response = models.CharField(max_length=150, verbose_name="ответ сервера", **NULLABLE)
 
     def __str__(self):
